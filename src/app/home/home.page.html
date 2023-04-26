@@ -1,0 +1,52 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-item lines="none">
+      <ion-label style="font-weight: 800;font-size: 3em;">
+        Hoje
+        <p style="font-weight: 400; color: #433465;">
+          {{hoje | date:'fullDate'}}
+        </p>
+      </ion-label>
+    </ion-item>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Blank</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-card class="ion-margin" *ngFor="let item of tarefasLista;">
+    <ion-card-header>
+      <ion-card-subtitle>
+        <ion-icon [color]="prioridadeCor(item.prioridade)" size="small" name="ellipse"></ion-icon>
+        <strong>{{item.categoria | uppercase}}</strong>  
+      </ion-card-subtitle>
+      {{item.prioridade}} <br> 
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item>
+        <ion-label [color]="prioridadeCor(item.prioridade)"><strong>{{item.nome | uppercase}}</strong></ion-label>
+      </ion-item>
+      <ion-label>Vencimento: {{item.data | date: 'dd/MM/yyyy'}}</ion-label>
+    </ion-card-content>
+    <ion-row>
+      <ion-item>
+        <ion-icon (click)="editar(item)" color="primary" name="create"></ion-icon>
+        <p>Editar</p>
+      </ion-item>  
+      <ion-item>
+        <ion-icon (click)="deletar(item.id)" color="danger" name="trash"></ion-icon>
+        <p>Cancelar</p>
+      </ion-item>
+    </ion-row>  
+  </ion-card>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button color="primary" (click)="adicionar()">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>
