@@ -1,4 +1,4 @@
-# Aula-mobile-Pokedex
+# Aula-mobile-Lista-Tarefas
 
 - Esse projeto foi desenvolvido para Aula de mobile do professor <a href="https://www.linkedin.com/in/josé-maurício-costa-52001583/">José Maurício Costa</a>.
 
